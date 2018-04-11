@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style1.css" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">支付</h1>
+        </header> 
+         
+        <div class="mui-input-row" style="margin-top: 50px; margin-bottom: 10px; background-color: #FFF">
+			<label style="font-size: 12px;">支付金额</label>
+			<input style="font-size: 12px;"  disabled="disabled"  type="text" placeholder="请输入充值金额">
+		</div>
+		<div class="chongzhi" style="height: 180px;">
+		   <div class="chongzhi-biaoti">请选择充值方式</div> 
+		   <div class="xiahuaxian" ></div>
+		    
+		        <div class=" mui-radio weizhi">
+		          <img src="images/zhifubao (1).png"><font>支付宝支付</font>
+				  <input name="radio" type="radio">
+		        </div>
+		        <div style="clear: both;" class=" mui-radio weizhi">
+		          <img src="images/weixin.png"><font>微信</font>
+				  <input name="radio" type="radio"> 
+		       </div> 
+		        <div style="clear: both; " class=" mui-radio weizhi" >
+		          <img src="images/yajinlishi.png"><font>余额</font>   
+				  <input name="radio" type="radio">
+		        </div>
+
+		</div>
+		<div style="margin-top: 10px;" class="zhifuanniu" id="btn">支付</div>
+	</body>
+		<script type="text/javascript" src="js/castapp.js" ></script>
+	<script type="text/javascript" src="js/mui.js" ></script>
+	<script type="text/javascript" src="js/jquery.js" ></script>
+<script>       
+	dj.init();
+		var phone=localStorage.getItem('phone'); 
+		var request_url=localStorage.getItem('request_url');  
+		var fadanid=localStorage.getItem('fadanid');
+		var zhifujine=localStorage.getItem('zhifujine');   
+		var input1=document.getElementsByTagName('input')
+		var btn=document.getElementById('btn')
+		var radio1=document.getElementsByName('radio')
+		var div1=document.getElementsByClassName('mui-radio weizhi')
+		var z;
+		var zhifu;
+		    $.ajax({       
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/dingdanchaxun1", 
+							data: {    
+							    fadanid_data:fadanid, 
+							},                    
+							async: true,   
+							success: function(data) {     
+							     json = JSON.parse(data);       
+							     input1[0].value=parseFloat(json.shangjin)+parseFloat(json.zhuijiashangjin)+parseFloat(json.diyajin)
+							   
+								//alert(data)
+								  chushihua() 
+							}                  
+			});     
+			function chushihua(){  
+				$.ajax({       
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/chaxun", 
+							data: {     
+							    phone_data:phone,    
+							},                   
+							async: true,   
+							success: function(data) {     
+							     json = JSON.parse(data);         
+							     
+					            if (parseFloat(json.tixian)<=parseFloat(input1[0].value)){
+					            	//alert('钱不够') 
+					            	radio1[2].disabled="disabled"
+					            }else{  
+					            	//alert('钱够了') 
+					            }  
+								
+								//alert(data)
+								  
+							}                  
+			});  
+			}
+			 
+			radio1[0].addEventListener('click',function(){
+				z=1; 
+				div1[0].style.color='black'
+				div1[1].style.color='#BFBFBF' 
+				div1[2].style.color='#BFBFBF'  
+			}) 
+			radio1[1].addEventListener('click',function(){ 
+				z=2; 
+				div1[1].style.color='black' 
+				div1[0].style.color='#BFBFBF' 
+				div1[2].style.color='#BFBFBF'  
+			}) 
+			radio1[2].addEventListener('click',function(){
+				z=3; 
+				div1[2].style.color='black'
+				div1[1].style.color='#BFBFBF'  
+				div1[0].style.color='#BFBFBF'  
+			})
+		btn.addEventListener('click',function(){
+				var time = new Date();      // 程序计时的月从0开始取值后+1
+				var m = time.getMonth() + 1;
+				var c = time.getFullYear() + "-" + m + "-" 
+				     + time.getDate() + " " + time.getHours() + ":"
+				     + time.getMinutes() + ":" + time.getSeconds();
+			if (z==1) {
+				$.ajax({                   //初始化全部
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/chongzhi1",     
+							data: {         
+								phone_data:phone, 
+							    input_data:input1[0].value,
+							    time_data:c,  
+							    tujing_data:'支付宝'
+						 },                           
+							async: true,      
+							success: function(data) {   
+								   zhifu=1;
+							   
+								tijiao() 
+								//mui.back() 
+		    	        } 
+               }) 
+			} 
+		
+			if (z==2) {
+				$.ajax({                   //初始化全部
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/chongzhi1",     
+							data: {         
+								phone_data:phone, 
+							    input_data:input1[0].value,
+							    time_data:c,   
+							    tujing_data:'微信' 
+						 },                           
+							async: true,     
+							success: function(data) {   
+								   zhifu=1;
+								 
+								tijiao()
+								//mui.back() 
+		    	        } 
+               }) 
+			}  
+			if (z==3) {
+				$.ajax({                   //初始化全部
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/yuezhifu",     
+							data: {         
+								phone_data:phone, 
+							    input_data:input1[0].value,
+							    time_data:c,   
+							    tujing_data:'余额' 
+							  
+						 },                            
+							async: true,      
+							success: function(data) {   
+								 zhifu=1;
+								
+								//mui.back() 
+								tijiao();
+		    	        } 
+               }) 
+			} 
+		})  
+		 
+		function tijiao(){ 
+			
+			if (zhifu==1) { 
+				
+				$.ajax({       
+							type: "get",         //修改当前页面内容
+							url: request_url + "Add/dingdanxiugai", 
+							data: {    
+							    fadanid_data:fadanid, 
+							    zhifu_data:1, 
+							},                    
+							async: true,    
+							success: function(data){      
+							    ca.prompt('充值成功'); 
+							    mui.back() 
+							}                  
+			}); 
+			}
+			 
+		}
+</script>
+</html>

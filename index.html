@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html> 
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title> 
+		<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="css/style2.css" />
+		<link rel="stylesheet" href="css/mui.css" />
+		<link rel="stylesheet" href="css/maps.css" />
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+var ws=null,wc=null;   
+// 扩展API加载完毕，现在可以正常调用扩展API 
+function plusReady(){ 
+	ws=plus.webview.currentWebview();   
+	// 用户点击后 
+	ws.addEventListener("maskClick",function(){  
+		wc.close("auto"); 
+	},false);
+} 
+// 判断扩展API是否准备，否则监听"plusready"事件 
+if(window.plus){ 
+	plusReady(); 
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}    
+// 显示侧滑页面   
+function showSide(){
+	// 防止快速点击可能导致多次创建
+	if(wc){
+		return;
+	}
+	// 开启遮罩
+	ws.setStyle({mask:"rgba(0,0,0,0.5)"}); 
+	// 创建侧滑页面   
+	wc=plus.webview.create("wode.html","wode",{left:"15%",width:"85%",popGesture:"none"});
+ 
+	// 侧滑页面关闭后关闭遮罩
+	wc.addEventListener('close',function(){
+		ws.setStyle({mask:"none"});
+		wc=null; 
+	},false);  
+	// 侧滑页面加载后显示（避免白屏） 
+	wc.addEventListener("loaded",function(){
+		wc.show("slide-in-right",200);
+	},false);
+}
+function showSide1(){
+	// 防止快速点击可能导致多次创建
+	if(wc){
+		return;
+	} 
+	// 开启遮罩
+	ws.setStyle({mask:"rgba(0,0,0,0.5)"}); 
+	// 创建侧滑页面   
+//	wc=plus.webview.create("wode.html","side",{left:"15%",width:"85%",popGesture:"none"});
+	wc=plus.webview.create("xiaoxi.html","xiaoxi",{right:"15%",width:"85%",popGesture:"none"});
+	// 侧滑页面关闭后关闭遮罩
+	wc.addEventListener('close',function(){ 
+		ws.setStyle({mask:"none"});  
+		wc=null;         
+	},false);  
+	// 侧滑页面加载后显示（避免白屏）    
+	wc.addEventListener("loaded",function(){
+		wc.show("slide-in-left",200);
+	},false);
+}
+ 
+function getUserInfo(){ //放回此页面时刷新内容
+		   	        
+		   	  		   alert(32131)
+		      
+		   } 
+			
+			
+
+
+
+
+
+
+
+		</script>
+		 
+</head> 
+	<body>
+		<!-- 
+		<header id="header"> 
+			<div class="mui-icon mui-icon-home" onclick="showSide()"></div> 
+			  <a class="mui-icon mui-icon-home" onclick="showSide()"></a>
+			<div class="nvtt">Webview Mask</div> 
+		</header>-->
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-icon mui-icon-home mui-pull-left"  onclick="showSide()"></a>  <!--侧滑地图-->
+		      <a class="mui-icon mui-icon-home mui-pull-right"  onclick="showSide1()"></a>  <!--侧滑地图-->
+		    <h1 class="mui-title">标题</h1> 
+		</header>
+		 
+<div id="container"></div>
+
+<div id="tip"></div>
+		
+			<div class="shouye-top">
+				
+				   <div class="shouye-top1"> 
+					   	<div class="top1-div1" id="fadanbtn">
+					   		 <img src="images/userimg.jpg">
+					   	</div>   
+					   	<div class="top1-div2">
+					   		<span>一 小 时 同 城 急 速 递</span>  
+					   		<br>
+					   		<span style="font-weight: 100;">An hour city express delivery</span>  
+					   	</div> 
+					   	<!--	
+				   	 <div class="button" onclick="showSide()">打开侧滑窗口</div>
+		<div class="des">打开侧滑窗口后，当前Webview窗口会显示遮罩层。</div> 
+	<div class="des">Webview的遮罩层会覆盖Webview中所有内容（包括子Webview），并且截获Webview窗口的所有触屏事件。</div>
+				   	     -->                   
+				   </div>  
+			</div>  
+		<img src="images/mubiaodi.png"
+	</body>   
+	<script type="text/javascript" src="js/immersed.js" ></script>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=9b34e5aa3e40f461e7d1861d64bc189c"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+	<script type="text/javascript" src="js/castapp.js" ></script>
+	<script type="text/javascript" src="js/mui.js" ></script>
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	 
+	<script type="text/javascript">
+		
+		localStorage.setItem('request_url','http://101.200.58.92/paotui/index.php/');    //get地址
+		localStorage.setItem('login_url',"http://101.200.58.92/paotui/WEB");       //上传图片地址
+		
+		
+		
+		
+		
+		
+		
+		
+		
+/***************************************
+由于Chrome、IOS10等已不再支持非安全域的浏览器定位请求，为保证定位成功率和精度，请尽快升级您的站点到HTTPS。
+***************************************/
+    var map, geolocation;
+    //加载地图，调用浏览器定位服务 
+    map = new AMap.Map('container', { 
+        resizeEnable: true  
+    });    
+    map.plugin('AMap.Geolocation', function() { 
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(15, 150),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB' 
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果 
+    function onComplete(data) { 
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        if(data.accuracy){
+             str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('tip').innerHTML = str.join('<br>');
+    }
+    //解析定位错误信息 
+    function onError(data) {
+        document.getElementById('tip').innerHTML = '定位失败';
+    }
+    
+      
+      
+      
+      
+      //鼠标点击获取经纬度 
+//  var clickEventListener = map.on('click', function(e) {                
+//      //document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
+//      //alert(321)
+//       
+//        new AMap.Marker({ 
+//      map: map, 
+//		position: [e.lnglat.getLng(), e.lnglat.getLat()],
+//      icon: new AMap.Icon({            
+//          size: new AMap.Size(200, 200),  //图标大小
+//          image: "images/mubiaodi1.png",
+//          imageOffset: new AMap.Pixel(0, 0), 
+//          
+//      })            
+//  }); 
+//  });  
+//  var auto = new AMap.Autocomplete({  
+//      input: "tipinput" 
+//  });
+//  AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+//  function select(e) {
+//      if (e.poi && e.poi.location) {
+//          map.setZoom(15);
+//          map.setCenter(e.poi.location);
+//      }
+//  } 
+//    
+        
+var phone=localStorage.getItem('phone');
+	  if (!phone) {
+	  	     
+			var timer1=window.setTimeout(function(){
+	    				 
+				var ws=plus.webview.currentWebview();
+					plus.webview.close(ws);  
+			},1000);
+			var w = plus.webview.create('login.html');    
+			plus.webview.show(w,'login','600'); 
+		
+	  }
+var btn=document.getElementById('fadanbtn')	
+				btn.addEventListener('click',function(){
+						mui.openWindow({
+								url:'fadan.html',
+								id:'fadan'
+						}); 
+				}) 
+     
+    
+    
+</script>
+</html>
