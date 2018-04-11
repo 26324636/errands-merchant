@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript">
 var ws=null,wc=null;   
-// 扩展API加载完毕，现在可以正常调用扩展API 
+// 扩展API加载完毕，现在可以正常调用扩展API  
 function plusReady(){ 
 	ws=plus.webview.currentWebview();   
 	// 用户点击后 
@@ -28,7 +28,7 @@ if(window.plus){
 	document.addEventListener("plusready",plusReady,false);
 }    
 // 显示侧滑页面   
-function showSide(){
+function showSide(){ 
 	// 防止快速点击可能导致多次创建
 	if(wc){
 		return;
@@ -93,7 +93,7 @@ function getUserInfo(){ //放回此页面时刷新内容
 			  <a class="mui-icon mui-icon-home" onclick="showSide()"></a>
 			<div class="nvtt">Webview Mask</div> 
 		</header>-->
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav"  style="background: red;">
 		    <a class="mui-icon mui-icon-home mui-pull-left"  onclick="showSide()"></a>  <!--侧滑地图-->
 		      <a class="mui-icon mui-icon-home mui-pull-right"  onclick="showSide1()"></a>  <!--侧滑地图-->
 		    <h1 class="mui-title">标题</h1> 
