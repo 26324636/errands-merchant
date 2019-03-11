@@ -15,32 +15,31 @@
  
 	<body>   
 		
-		<header class="mui-bar mui-bar-nav public-color " >  
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left public-font-color" ></a>
-			<h1 class="mui-title public-font-color" >我的订单</h1>
-		</header>  
-		<div class="wddingdan">  
+		  <header class="mui-bar mui-bar-nav" style="background-color: #FFB05F;">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<h1 class="mui-title public-font-color"  style="color: #fff;" >我的订单</h1>
+		</header>    
+		<div class="wddingdan">   
 			<div id="leixing" class="wddingdan-left">类型<img class="bu" class src="images/xiangxiajiantou.png"></div>
 			<div class="geduan"></div>
 			<div id="paixun" class="wddingdan-main">价格排序<img class="bu" src="images/xiangxiajiantou.png"></div>	
 
-		</div>
+		</div> 
 		<div id="fanhui" class="mui-backdrop" style=" position: absolute; z-index: 999;  display: none; margin-top: 170px;"></div>
 		<div style="display: none;"  class="wdedingdan-jiemian li">
 	            <div class="wddingdan-hengxian"></div> 
-				<div class="jiehuo">大宗物流</div>  
+				<div class="jiehuo bi">大宗物流</div>    
 				<div class="wddingdan-hengxian"></div> 
 				<div class="jiehuo">小件物流</div>
 				<div class="wddingdan-hengxian"></div>
 				<div class="jiehuo">外卖</div>
-				<!--<div class="wddingdan-hengxian"></div>-->
-		</div>
+				<!--<div class="wddingdan-hengxian"></div>-->  
+		</div> 
 		<div style="display: none;" class="wdedingdan-jiemian li">
-				<div class="jiehuo">只能排序</div>
-				<div class="wddingdan-hengxian"></div>
-				<div class="jiehuo">价格最低</div>
-				<div class="wddingdan-hengxian"></div>
-				<div class="jiehuo">价格最高</div>
+				 
+				<div class="jiehuo1 bi">价格最低</div> 
+				<div class="wddingdan-hengxian"></div>  
+				<div class="jiehuo1">价格最高</div> 
 				<!--<div class="wddingdan-hengxian"></div>-->
 		</div>
 		<div class="wdedingdan-tupian"><img src="images/guid.jpg"></div>
@@ -118,9 +117,11 @@
 			var lis1=document.getElementsByClassName('lis1')
 			var arrlist=document.getElementsByClassName('sort-list');
 			var arrdiv=document.getElementsByClassName('sort-conten');
-			var jiehuo=document.getElementsByClassName('jiehuo');
+			var jiehuo=document.getElementsByClassName('jiehuo'); 
+			var jiehuo1=document.getElementsByClassName('jiehuo1');
 			var d = new Array(["全部"],[ "接单中"], ["待验收"],['撤销中'], ["已结算"],["已撤销"]);
 		    var dingdan = new Array();  
+		    var b=0;
 		$.ajax({                   //初始化全部
 							type: "get",         //修改当前页面内容
 							url: request_url + "Add/dingdanquanbuchaxun",     
@@ -148,9 +149,9 @@
 											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
 											   +    ' <div class="jiedangzhong-jiage">'
 											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
-											   +       ' <div class="jiedangzhong-money">¥'+ json[a].shangjin +'元</div>'
+											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
 											   +    ' </div>'
-											   +'</div>  '    
+											   +'</div>  '     
 							      
 			    	  	  	lis1[0].innerHTML += tmpl;   
 		    	        } 
@@ -165,8 +166,7 @@
 						for(var j=0;j<arrdiv.length;j++)
 						{  
 							arrdiv[j].style.display="none";
-							 
-						}
+						} 
 						arrdiv[this.index].style.display="block";
 						 
 //					alert(this.index)  
@@ -219,7 +219,7 @@
 											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
 											   +    ' <div class="jiedangzhong-jiage">'
 											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
-											   +       ' <div class="jiedangzhong-money">¥'+ json[a].shangjin +'元</div>'
+											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
 											   +    ' </div>'
 											   +'</div>  '    
 							      
@@ -243,7 +243,7 @@
 						     localStorage.setItem('fenlei',0);      //选择的分类
 						    lis1[b].innerHTML=''        
                               dingdan[b]=data
-							                  
+							             
                             json= JSON.parse(data)  
                               
                            	 for(  a in json){            
@@ -258,7 +258,7 @@
 											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
 											   +    ' <div class="jiedangzhong-jiage">'
 											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
-											   +       ' <div class="jiedangzhong-money">¥'+ json[a].shangjin +'元</div>'
+											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
 											   +    ' </div>'
 											   +'</div>  '    
 							       
@@ -309,17 +309,18 @@
 						for(var j=0;j<jiehuo.length;j++)
 						{  
 //							arrdiv[j].style.display="none";
-
-							   
-						}
+                        jiehuo[j].className='jiehuo'; 
+							      
+						} 
+					jiehuo[this.index].className='jiehuo bi'
 //						arrdiv[this.index].style.display="block";
 						 //alert(jiehuo[this.index].innerHTML)  //当前选择类型
-						 //  alert(c)                           //当前选项卡 
+						 //  alert(c)                           //当前选项卡  
 						 // alert(dingdan[b])                  //当前选项卡显示的数据
 						   lis1[b].innerHTML=''        
                             json= JSON.parse(dingdan[b])  
-                                            
-                           	 for(  a in json){            
+                                              
+                           	 for(  a in json){             
                             	   if (json[a].leixing==jiehuo[this.index].innerHTML) {
                             	   	
                             	   	   var tmpl ='<div class="wdedingdan-zong-right-fen nei" iid=' + json[a].id  +'> '
@@ -332,10 +333,10 @@
 											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
 											   +    ' <div class="jiedangzhong-jiage">'
 											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
-											   +       ' <div class="jiedangzhong-money">¥'+ json[a].shangjin +'元</div>'
+											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
 											   +    ' </div>'
 											   +'</div>  '    
-							       
+							         
 			    	  	  					lis1[b].innerHTML += tmpl;   
                             	   }      
                             	
@@ -357,7 +358,193 @@
 				});
 				 
 			} 	
-			 
+		
+		
+		
+		
+		for(var i=0;i<jiehuo.length;i++){               //初始化其他页面
+				 jiehuo[i].index=i 
+				jiehuo[i].addEventListener('tap',function(){
+						for(var j=0;j<jiehuo.length;j++)
+						{  
+//							arrdiv[j].style.display="none";
+                        jiehuo[j].className='jiehuo';
+							      
+						} 
+					jiehuo[this.index].className='jiehuo bi'
+//						arrdiv[this.index].style.display="block";
+						 //alert(jiehuo[this.index].innerHTML)  //当前选择类型
+						 //  alert(c)                           //当前选项卡  
+						 // alert(dingdan[b])                  //当前选项卡显示的数据
+						   lis1[b].innerHTML=''        
+                            json= JSON.parse(dingdan[b])  
+                                             
+                           	 for(  a in json){            
+                            	   if (json[a].leixing==jiehuo[this.index].innerHTML) {
+                            	   	
+                            	   	   var tmpl ='<div class="wdedingdan-zong-right-fen nei" iid=' + json[a].id  +'> '
+											   +   '  <div class="kuaidi">'
+											   +     	'<img src="images/kuaidi.png">'
+											   +     	'<font>'+json[a].biaoti+'</font>' 
+											   +     	'<div class="xuanze">'+json[a].zhuangtai+'</div>'
+											   +     '</div> '
+											   +   ' <div style="margin-left: 0px;" class="jiedangzhong-huaxian"></div>'
+											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
+											   +    ' <div class="jiedangzhong-jiage">'
+											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
+											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
+											   +    ' </div>'
+											   +'</div>  '    
+							       
+			    	  	  					lis1[b].innerHTML += tmpl;   
+                            	   }      
+                            	
+		    	        }
+					});
+				 
+			} 
+		
+		
+		
+		for(var i=0;i<jiehuo1.length;i++){               //价格排序 
+				 jiehuo1[i].index=i 
+				jiehuo1[i].addEventListener('tap',function(){ 
+						for(var j=0;j<jiehuo1.length;j++)
+						{  
+//							arrdiv[j].style.display="none";
+                        jiehuo1[j].className='jiehuo1';
+							      
+						}  
+					jiehuo1[this.index].className='jiehuo1 bi'
+//						arrdiv[this.index].style.display="block";
+						 //alert(jiehuo[this.index].innerHTML)  //当前选择类型
+						 //  alert(c)                           //当前选项卡  
+						 // alert(dingdan[b])                  //当前选项卡显示的数据
+						    
+                            json= JSON.parse(dingdan[b])   
+                                       
+                                       if (this.index==0) { 
+                                       	 
+                                       	 
+                                       	   
+                                       	 $.ajax({                  
+											type: "get",         
+											url: request_url + "Add/dingdanquanbuchaxun1",     
+											data: {         
+											     
+										 },                           
+											async: true,    
+											success: function(data) {  
+												lis1[b].innerHTML='' 
+												//alert(data)
+				//							     alert(data)  
+										      json= JSON.parse(data)  
+				                           	 for(  a in json){            
+				                                 
+				                            	 var tmpl ='<div class="wdedingdan-zong-right-fen nei" iid=' + json[a].id  +'> '
+															   +   '  <div class="kuaidi">'
+															   +     	'<img src="images/kuaidi.png">'
+															   +     	'<font>'+json[a].biaoti+'</font>' 
+															   +     	'<div class="xuanze">'+json[a].zhuangtai+'</div>'
+															   +     '</div> '
+															   +   ' <div style="margin-left: 0px;" class="jiedangzhong-huaxian"></div>'
+															   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
+															   +    ' <div class="jiedangzhong-jiage">'
+															   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
+															   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
+															   +    ' </div>'
+															   +'</div>  '    
+											      
+							    	  	  	lis1[b].innerHTML += tmpl;   
+						    	        		} 
+					                     click_event();	
+					                       
+				                 		 }                   
+								}); 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       	 
+                                       } else{
+                                       	     	   
+                                       	 $.ajax({                  
+											type: "get",         
+											url: request_url + "Add/dingdanquanbuchaxun2",     
+											data: {         
+											     
+										 },                           
+											async: true,    
+											success: function(data) {  
+												lis1[b].innerHTML='' 
+												//alert(data)
+				//							     alert(data)   
+										      json= JSON.parse(data)  
+				                           	 for(  a in json){            
+				                                     
+				                            	 var tmpl ='<div class="wdedingdan-zong-right-fen nei" iid=' + json[a].id  +'> '
+															   +   '  <div class="kuaidi">'
+															   +     	'<img src="images/kuaidi.png">'
+															   +     	'<font>'+json[a].biaoti+'</font>' 
+															   +     	'<div class="xuanze">'+json[a].zhuangtai+'</div>'
+															   +     '</div> '
+															   +   ' <div style="margin-left: 0px;" class="jiedangzhong-huaxian"></div>'
+															   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
+															   +    ' <div class="jiedangzhong-jiage">'
+															   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
+															   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
+															   +    ' </div>'
+															   +'</div>  '    
+											      
+							    	  	  	lis1[b].innerHTML += tmpl;   
+						    	        		} 
+					                     click_event();	
+					                       
+				                 		 }                   
+								}); 
+                                       }
+//                         	 for(  a in json){            
+//                          	   if (json[a].leixing==jiehuo[this.index].innerHTML) {
+//                          	   	
+//                          	   	   var tmpl ='<div class="wdedingdan-zong-right-fen nei" iid=' + json[a].id  +'> '
+//											   +   '  <div class="kuaidi">'
+//											   +     	'<img src="images/kuaidi.png">'
+//											   +     	'<font>'+json[a].biaoti+'</font>' 
+//											   +     	'<div class="xuanze">'+json[a].zhuangtai+'</div>'
+//											   +     '</div> '
+//											   +   ' <div style="margin-left: 0px;" class="jiedangzhong-huaxian"></div>'
+//											   +    '<div class="jiedangzhong">'+json[a].ciry+'</div>'
+//											   +    ' <div class="jiedangzhong-jiage">'
+//											   +        '<div class="jiedangzhong-shijian">'+json[a].time+'</div>'
+//											   +       ' <div class="jiedangzhong-money">¥'+ json[a].zongjia +'元</div>'
+//											   +    ' </div>'
+//											   +'</div>  '    
+//							       
+//			    	  	  					lis1[b].innerHTML += tmpl;   
+//                          	   }       
+//                          	
+//		    	        }
+				});
+				  
+			} 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			for (var i=1;i<fenye.length;i++) {
 				fenye[i].style.display="none";
 			}

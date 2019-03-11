@@ -1,15 +1,18 @@
 /*我的积分*/
+
 .beijin-baise{
 	width: 100%;
 	height: 240px;
-	background-color: #FFFFFF;
+	background-image: linear-gradient(to top, #04befe 100%,#4481eb 0%);
+
 }
 
 .beijin{
-	background-image: url(../images/beijin3.jpg);
+	/*background-image: url(../images/beijin3.jpg);*/
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 200px;
+	
 	/*border: red solid 1px;*/
 }
 .qiandao{
@@ -26,8 +29,10 @@
 	border-radius:25px ;
 }
 .my-points-header{
-	height: 35px;
+	height: 45px;
 	width: 100%;
+	background-color: #FFB05F;
+
 	/*border: red solid 1px;*/
 }
 .my-points-touxiang{
@@ -40,6 +45,7 @@
     /*border: red solid 1px;*/
 }
 .my-points-touxiang-images{
+	margin-top: 10px;
 	width: 100px;
 	height: 100px;
 	/*border: red solid 1px;*/
@@ -154,7 +160,7 @@
 /*	border:red solid 1px;*/
 }
 .shijian{
-	color: #cdcdcd;
+	color: #9f9f9f;
 	margin-left: 4px;
 	margin-top: 5px;
 	font-size: 12px;
@@ -179,7 +185,7 @@
 /*	border:red solid 1px;*/
 }
 .jifenshuliang{
-	color: red;
+	color: #FF5053;
 	font-size: 18px;
 	float: right;
 	padding: 12px 3px 0px 0px;
@@ -198,12 +204,14 @@
 	
 }
 .jifenguize1{
+	margin-bottom: 5px;
 	font-family: "楷体";
-	font-size: 10px;
+	font-size: 15px;
+	margin-top: 25px;
 }
 .jifenguize2{
-	line-height: 13px;
-	font-size: 10px;
+	line-height: 15px;
+	font-size: 15px;
 	padding-left: 9px;
 	height: 50px;
 }
@@ -212,22 +220,26 @@
 .beijin-baise1{
 	width: 100%;
 	height: 180px;
-	background-image: linear-gradient(to top, #04befe 100%,#4481eb 0%);
+	background-color: #FFB05F;
 }
 .beijin-baise2{
 	width: 100%;
 	height: 110px;
 	background-image: linear-gradient(to top, #04befe 100%,#4481eb 0%);
+
 }
 .beijin-baise3{
 	width: 100%;
 	height: 210px;
 	background-image: linear-gradient(to top, #04befe 100%,#4481eb 0%);
+
 }
 .beijin1{
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 200px;
+	background-image: linear-gradient(to top, #04befe 100%,#4481eb 0%);
+
 	/*border: red solid 1px;*/
 }
 .zijinguanli-header1{
@@ -249,8 +261,8 @@
 	height: 30px;
 	width: 100%;
 	text-align: center;
-	font-size: 12px;
-	color: #f4ea2a;
+	font-size: 15px;
+	color: #F0F0F0;
 }
 .money{
 	margin-top: 8px;
@@ -286,8 +298,8 @@
 }
 .jinge1-1{
 	text-align: center;
-	font-size: 10px;
-	color:#f4ea2a ;
+	font-size: 15px;
+	color:#f0f0f0 ;
 }
 .jinge1-2{
 	text-align: center;
@@ -299,9 +311,9 @@
 }
 .caiwu img{
 	float: left;
-	margin-top: 3px;
-	width: 18px;
-	height: 18px;
+	margin-top: 10px;
+	width: 20px;
+	height: 20px;
 }
 .caiwu1 img{
 	float: right;
@@ -310,19 +322,20 @@
 	height: 18px;
 }
 .wenzi-right{
-	margin-top: 3px;
+	margin-top: 6px;
 	margin-left: 5px;
     float: left;
-    font-size: 12px;	
+    font-size: 15px;	
+    line-height: 30px;
 }
 .manag1{
 	float: left;
 	width: 84%;
 	color: #FFFFFF;
 	text-align: center;
-	padding-top: 12px;
+	padding-top: 10px;
 	padding-left: 1.5%;
-	text-align: center;
+	
 }
 .caiwu1{
     margin-left: 94%;
@@ -527,9 +540,9 @@
 	
 }
 .zuorishouyi-tupian img{
-	margin-top: 20px;
-	width: 90px;
-	height: 90px;
+	margin-top:40px;
+	width: 160px;
+	height: 70px;
 	
 }
 .name{
@@ -563,7 +576,7 @@
 	text-align: center;
 	margin: auto;
 	width: 90%;
-	background-color:#17abe3 ;
+	background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
 	height: 40px;
 	border-radius: 30px;
 }
@@ -595,7 +608,7 @@
 .zijing-dibu-left{
 	padding-left: 8%;
 	font-size: 15px;
-	color: #1195db;
+	color: #FFB05F;
 	padding-top: 12px;
 	text-align: center;
 	float: left;
@@ -605,7 +618,7 @@
 .zijing-dibu-right{
 	padding-right: 10%;
 	font-size: 15px;
-	color: #1195db;
+	color: #FFB05F;
 	padding-top: 12px;
 	text-align: center;
 	float: right;
@@ -791,7 +804,7 @@
 	text-align: center;
 	margin: auto;
 	width: 95%;
-	background-color:#17abe3 ;
+	background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
 	height: 40px;
 	border-radius: 10px;
 }
@@ -804,7 +817,7 @@
 	background-color: #fff;
 	border-radius: 15px;
 	padding-top: 45px;
-	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+	background-color: #fff;
 }
 .yonghu1{
 	padding-left: 30px;
@@ -822,8 +835,8 @@
 }
 .yonghu1-image{
 	margin-top: 7px;
-	width: 70px;
-	height: 70px;
+	width: 40px;
+	height: 40px;
 	float: left;
 	border-radius: 50%;
 }
@@ -846,13 +859,14 @@
 }
 .yonghu1-name{
 	color: #fff;
-	font-size: 18px;
-	padding-top: 17px;
+	font-size: 15px;
+	/*padding-top: 17px;*/
 	margin-left: 10px;
-	margin-top: 10px;
-	width: 100px;
+	margin-top: 13px;
+	width: 30px;
 	height: 30px;
 	float: left;
+	/*border: red solid 1px;*/
 }
 .xiahuaxian1{
 	float: right;
@@ -877,17 +891,17 @@
 	height: 30px;
 }
 .xiotng2{
-	
-	color: #fff;
+	font-family: "微软雅黑";
+	/*color: #fff;*/
 	margin-left: 10px;
 	margin-top: 10px;
 	float: left;
-	font-size: 13px;
+	font-size: 15px;
 }
 .xinxi-zhuti{
 	width: 100%;
 	height: 120px;
-	background-image: linear-gradient(to right, #434343 0%, black 100%);
+	background:#FF8A4B;
 }
 .hengxian{
 	width: 100%;
@@ -896,7 +910,7 @@
 }
 .xitong-tubiao{
 	height: 100px;
-	margin-top: 80px;
+	margin-top: 210px;
 	display:flex;
     flex-direction:row;
     flex-wrap:wrap;
@@ -904,7 +918,7 @@
 }
 .xitong-tubiao img{
 	width: 100px;
-	height: 100px;
+	height: 80px;
 }
 .banbenhao{
 	padding-top: 3px;
@@ -1027,7 +1041,7 @@
 	z-index: 999;
 } 
 .wddingdan-left{
-	font-size: 13px;
+	font-size: 15px;
 	padding-top: 3px; 
 	text-align: center;
 	width: 45%;
@@ -1043,10 +1057,10 @@
 	/*transform: rotate(180deg);*/
 }
 .wddingdan-main{
-	font-size: 13px;
+	font-size: 15px;
 	padding-top: 3px;
 	text-align: center;
-	width: 45%;
+	width: 45%; 
 	height: 30px;
 	/*border: red solid 1px;*/
 	float: right;
@@ -1068,20 +1082,31 @@
 .wdedingdan-jiemian{
 	background-color: #fff;
 	width: 100%;
-	height: 95px;
+	height: 120px;
 	position: absolute;
 	z-index: 999;
 	margin-top: 74px;
 	/*border: red solid 1px;*/
 }
+
+
 .jiehuo{
-	padding-top: 3px;
+	padding-top: 10px;
 	/*border: red solid 1px;*/
-	font-size: 13px;
+	font-size: 15px;
 	padding-left: 10px;
 	width: 100%;
-	height: 30px;
+	height: 40px;
 }
+.jiehuo1 {
+	padding-top: 10px;
+	/*border: red solid 1px;*/
+	font-size: 15px;
+	padding-left: 10px;
+	width: 100%;
+	height: 40px;
+}
+
 .wddingdan-hengxian{
 	width: 100%;
 	height: 1px;
@@ -1119,13 +1144,13 @@
 	/*border: red solid 1px;*/
 	width: 100%;
 	height: 40px;
-	font-size: 12px;
+	font-size: 15px;
 }
 .bai{
 	border:#e6e6e6 solid 1px;
-	border-left: #1296db solid 2px;
+	border-left: #EECFA1 solid 2px;
     background-color: #fff;
-	color: #1296db;
+	color: #EECFA1;
 }
 .wdedingdan-zong-right-fen{
 	margin-bottom: 10px;
@@ -1224,7 +1249,7 @@
 	font-size: 13px;
 }
 .dingdanxingxi-right{
-	color: #1196db;
+	color: red;
 	margin-right: 10px;
 	margin-top: 5px;
 /*	border: red solid 1px;*/
@@ -1314,13 +1339,16 @@
 	/*border: red solid 1px;*/
 }
 .yaoqing-main-wenzi{
+	
 	padding-top: 5px;
 	background-color: #fff8b0;
-	text-align: center;
+	 
+	text-align: center ;
 	font-size: 23px;
 	color:#e98f36 ;
 }
 .yaoqing-main-wenzi font{
+	
 	text-align: center;
 	font-size: 18px;
     line-height: 50px;
@@ -1333,13 +1361,13 @@
 }
 .yaoqing-tupian img{
 	width: 100%;
-	height: 360px;
+	height: 340px;
 }
 .fenxiang{
 	background-color: #fff9e3;
 	text-align: center;
 	width: 100%;
-	height: 30px;
+	height: 40px;
 	/*border: red solid 1px;*/
 	/*background-color: #fff;*/
 }
@@ -1411,8 +1439,10 @@
 	font-size: 13px;
 }
 .chenggong{
+	position: absolute;
+	bottom: 0px;
 	background-color: #fff9e3;
-	height: 80px;
+	height: 80px; 
 	width: 100%;
 	/*border: red solid 1px;*/
 }
@@ -1454,4 +1484,61 @@
 	width: 1px;
 	background-color: #e6e6e6;
 	height: 40px;
+}
+.bi{
+	color: red;
+}
+.bianji {
+	padding-top: 7px;
+	height: 35px;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 3%;
+	float: left;
+	width:45%;
+	/*border: 1px solid red;*/
+	text-align: center;
+	color: white;
+	background-color: #F0AD4E;
+	border-radius: 10px;
+}
+.chexiao {
+	padding-top:7px;
+	height: 35px;
+	margin: auto;
+	margin-top: 10px;
+	margin-right: 3%;
+	width:45%;
+	float: right;
+	/*border: 1px solid red;*/
+	text-align: center;
+	color: white;
+	background-color: #FF8A4B;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+/*常见问题*/
+.changjian{
+	height: 500px;
+	margin-top: 50px;
+}
+.changjianwenti{
+	margin: auto;
+	margin-top: 30px;
+	margin-left: 5%;
+	width: 90%;
+}
+.changjianwenti1{
+	margin-bottom: 5px;
+	font-family: "楷体";
+	font-size: 15px;
+	
+	/*margin-top: 25px;*/
+}
+.changjianwenti2{
+	line-height: 15px;
+	font-size: 15px;
+	padding-left: 9px;
+	/*height: 50px;*/
+	width: 95%;
 }

@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H5792A0A6",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "11111111111111111111111",/*应用名称，程序桌面图标名称*/
@@ -173,31 +173,227 @@
                 "ios": {
                     "iphone": {
                         "default": "", /*iPhone3启动图片选，分辨率：320x480*/
-                        "retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-                        "retina40": "",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
-                        "retina47": "",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
-                        "retina55": "",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
-                        "retina55l": ""/*5.5 英寸设备(iPhone6 Plus)横屏启动图片，分辨率：2208x1242*/
+                        "retina35": "images/qidongye1.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+                        "retina40": "images/qidongye2.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+                        "retina47": "images/qidongye3.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+                        "retina55": "images/qidongye4.png","retina55l":"images/qidongye6.png"/*5.5 英寸设备(iPhone6 Plus)横屏启动图片，分辨率：2208x1242*/
                     },
                     "ipad": {
-                        "portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
-                        "portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
-                        "landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
-                        "landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-                        "portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
-                        "portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
-                        "landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-                        "landscape-retina7": ""/*iPad iOS7高分屏横屏启动图片，分辨率：2048x1536*/
+                        "portrait": "images/qidongye5.png", /*iPad竖屏启动图片，分辨率：768x1004*/
+                        "portrait-retina": "images/qidongye10.png",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+                        "landscape": "images/qidongye7.png", /*iPad横屏启动图片，分辨率：1024x748*/
+                        "landscape-retina": "images/qidongye11.png", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+                        "portrait7": "images/qidongye8.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+                        "portrait-retina7": "images/qidongye12.png",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+                        "landscape7": "images/qidongye9.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+                        "landscape-retina7": "images/qidongye13.png"/*iPad iOS7高分屏横屏启动图片，分辨率：2048x1536*/
                     }
                 },
                 "android": {
                     "mdpi": "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi": "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": ""/*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi": "images/qidongye14.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi": "images/qidongye15.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi": "images/qidongye16.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"js/castapp.js",
+					"js/common.js",
+					"css/maps.css",
+					"css/common.css",
+					"fonts/mui.ttf",
+					"images/fengniaokeji.png",
+					"js/mui.js",
+					"css/mui.css",
+					"css/style2.css",
+					"js/jquery.js",
+					"js/immersed.js",
+					"images/fabutubiao2.png"
+				],
+				"refer": [
+					"wode.html"
+				],
+				"priority": 0
+			},
+			"wode.html": {
+				"resources": [
+					"js/castapp.js",
+					"images/userimg.jpg",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.js",
+					"js/jquery.js",
+					"images/invent.jpg"
+				],
+				"refer": [
+					"feedback.html",
+					"qishiguize.html",
+					"changjianwenti.html"
+				],
+				"priority": 0
+			},
+			"feedback.html": {
+				"resources": [
+					"css/feedback.css",
+					"js/feedback.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"qishiguize.html": {
+				"resources": [
+					"css/style1.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"changjianwenti.html": {
+				"resources": [
+					"css/style1.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/xinyong_banner.jpg",
+				"images/quanquan.png",
+				"images/yaoqiu.png",
+				"combinationSelect/poppicker.js",
+				"login.html",
+				"images/beijin2.jpg",
+				"images/shouji.png",
+				"management.html",
+				"images/tuxiang.png",
+				"images/zhifubaobao.png",
+				"images/dingdan.png",
+				"ceshi.html",
+				"tixianzhanghu.html",
+				"js/mui.poppicker.js",
+				"images/mubiaodi1.png",
+				"dingdanxiangqing.html",
+				"fonts/iconfont.ttf",
+				"css/mui.imageviewer.css",
+				"js/city.data.js",
+				"images/pengyouquan.png",
+				"images/qidongye16.png",
+				"combinationSelect/city.data.js",
+				"images/qidongye15.png",
+				"images/qidongye1.png",
+				"combinationSelect/poppicker.css",
+				"images/qidongye10.png",
+				"dongjiemingxi.html",
+				"wodexinxi.html",
+				"images/zhifubao.png",
+				"js/city.data-3.js",
+				"loginpass.html",
+				"images/shangj.png",
+				"tixianzhanghuguanli.html",
+				"js/mui.imageViewer.js",
+				"js/echarts-all.js",
+				"images/invent1.jpg",
+				"images/mingxi.png",
+				"images/weixin.png",
+				"register.html",
+				"images/qidongye4.png",
+				"images/logo.png",
+				"password.html",
+				"images/guanli.png",
+				"images/yonghu.png",
+				"images/qidongye8.png",
+				"images/qidongye11.png",
+				"images/qidongye7.png",
+				"images/xitong.png",
+				"caiwumingxi.html",
+				"zengtianyinhangka.html",
+				"images/liaotian.png",
+				"xiaoxi.html",
+				"images/qingkuang.png",
+				"chongzhi.html",
+				"wdedingdan.html",
+				"css/style3.css",
+				"fadan.html",
+				"tixianmingxi.html",
+				"combinationSelect/picker.css",
+				"images/qita.png",
+				"images/danzi.png",
+				"images/invent3.gif",
+				"images/chaxun.png",
+				"images/erweima.png",
+				"images/jiantou.png",
+				"images/mubiaodi.png",
+				"index1.html",
+				"images/weixing.png",
+				"combinationSelect/picker.js",
+				"images/chongzhi.png",
+				"zengtianzhifubaozhanghao.html",
+				"images/youhuiquan.png",
+				"images/yajinlishi.png",
+				"images/xiangxiajiantou.png",
+				"xinyongguanli.html",
+				"images/qidongye5.png",
+				"images/jianshe.png",
+				"images/qidongye3.png",
+				"images/tongzhi.png",
+				"js/mui.picker.js",
+				"images/qidongye2.png",
+				"images/fabutubiao1.png",
+				"xitonxinxi.html",
+				"images/bangzhu.png",
+				"images/beijin3.jpg",
+				"jifenguize.html",
+				"images/caiwu.png",
+				"chat.html",
+				"images/guid.jpg",
+				"images/zhifubao3.png",
+				"js/arttmpl.js",
+				"images/bei.jpg",
+				"images/rili.png",
+				"images/invent2.jpg",
+				"images/dongjie.png",
+				"images/jia.png",
+				"images/qidongye14.png",
+				"shezhi.html",
+				"zhifu.html",
+				"My-points.html",
+				"images/jiedan.png",
+				"guanyuwomen.html",
+				"chongzhimingxi.html",
+				"images/xiangshangjiantou.png",
+				"tixian.html",
+				"images/guize.png",
+				"css/mui.poppicker.css",
+				"paypass.html",
+				"images/qidongye13.png",
+				"tongzhixiaoxi.html",
+				"images/qidongye12.png",
+				"images/weixin1.png",
+				"yaoqing.html",
+				"css/mui.picker.css",
+				"images/tixian.png",
+				"images/logo33.png",
+				"images/zhifubao (1).png",
+				"images/qidongye9.png",
+				"css/app.css",
+				"subsidiary.html",
+				"images/kuaidi.png",
+				"combinationSelect/city.data-3.js",
+				"images/qidongye6.png"
+			]
+		}
+	}
 }

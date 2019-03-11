@@ -1,1 +1,60 @@
-null
+{
+	"index.html": {
+		"resources": [
+			"js/castapp.js",
+			"js/common.js",
+			"css/maps.css",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"images/fengniaokeji.png",
+			"js/mui.js",
+			"css/mui.css",
+			"css/style2.css",
+			"js/jquery.js",
+			"js/immersed.js",
+			"images/fabutubiao2.png"
+		],
+		"refer": [
+			"wode.html"
+		]
+	},
+	"wode.html": {
+		"resources": [
+			"js/castapp.js",
+			"images/userimg.jpg",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.js",
+			"js/jquery.js",
+			"images/invent.jpg"
+		],
+		"refer": [
+			"feedback.html",
+			"qishiguize.html",
+			"changjianwenti.html"
+		]
+	},
+	"feedback.html": {
+		"resources": [
+			"css/feedback.css",
+			"js/feedback.js",
+			"css/mui.min.css"
+		]
+	},
+	"qishiguize.html": {
+		"resources": [
+			"css/style1.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"changjianwenti.html": {
+		"resources": [
+			"css/style1.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	}
+}

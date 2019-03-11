@@ -13,35 +13,15 @@
 		</script>  
 	</head>
  
-	<body style="background-color: #FFF">
+	<body style="background-color: #FFF"> 
 	<div class="beijin-baise2">
-	  <div class="beijin1">
-        <div class="my-points-header"> 
-            <a style="margin: 10px 0px 0px 5px; color: #FFFFFF;" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	  <div class="beijin1" style="height: 110px;">
+        <div class="my-points-header">  
+            <a style="margin: 5px 0px 0px 5px; color: #FFFFFF;" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
             <div class="manag1">资金管理</div>
-            <div class="caiwu1" ><img src="images/chaxun.png" id="ee"></div>
+             
         </div> 
-         <div class="tanchucaidan" id="tc">
-        	<div class="caiwu-riqi1">日期</div>  
-        	<div class="caiwu-riqi2">
-        		<div class="caiwu-riqi2-left riqi">今天</div>
-        		<div class="caiwu-riqi2-main riqi">近7天</div>
-        		<div class="caiwu-riqi2-right riqi">近1月</div>
-        	</div>
-        	<div class="caiwuhuaxian"></div>
-        	<div class="caiwu-leixing">
-        		<div class="leixing">类型</div>
-        		<div class="caiwu-riqi3">
-        		    <div class="caiwu-riqi3-left bu">全部</div>
-        		    <div class="caiwu-riqi3-main bu">充值</div>
-        		    <div class="caiwu-riqi3-right bu">提现</div>	   
-        	    </div>
-        	    <div class="caiwu-anniu">
-        	    	<div class="qingkong" id="qing">清空</div>
-        	    	<div class="queren">确认</div>
-        	    </div>       	    
-        	</div>
-        </div>  
+           
          <div class="zuorishouyi">昨日收益</div>
         <div class="money" id="shouyi">0</div>
 
@@ -50,8 +30,8 @@
 <!--遮罩-->		
     <div id="fanhui" class=" mui-backdrop" style=" position: absolute; z-index: 999;  display: none; margin-top: 240px;"></div>
 <!--正文内容-->
-<div id="dic"> 
-        <div class="caiwumingxi-neirong">
+<div id="dic">  
+        <!--<div class="caiwumingxi-neirong">
             <div class="caiwumingxi-neirong-left">
                                           到账-到账成功<br>
               2018-02-09 17:49:39                            
@@ -61,7 +41,7 @@
             </div>
         </div>
         <div class="caiwumingxi-neirong-huaxian"></div>
-        
+        -->
 </div>
 <!--js-->     
 <script type="text/javascript" src="js/mui.js" ></script>
@@ -76,25 +56,19 @@
     	var bu=document.getElementsByClassName('bu');
     	var qing=document.getElementById('qing');
     	var tc=document.getElementById('tc');
-    	var fanhui=document.getElementById('fanhui');
-    	
-    	
-    	
-    	
-    	var i=0;
-    	var ee=document.getElementById('ee');
-    	var riqi=document.getElementsByClassName('riqi');
-    	var qing=document.getElementById('qing');
-    	var tc=document.getElementById('tc');
-    	var fanhui=document.getElementById('fanhui');
+    	var fanhui=document.getElementById('fanhui'); 
+    	 
     	var phone=localStorage.getItem('phone');
 		var request_url=localStorage.getItem('request_url');
     	var dic=document.getElementById('dic')
     	var bt=document.getElementById('btn')
     	var shouyi=document.getElementById('shouyi')
-    	let json1 
+    	var btn=document.getElementById('btn')
+    	var json1 
     	var z=0 
-    
+    	var str;
+    	var obj;   
+    	var x='0';  
     	 $.ajax({                               //周日收益
 							type: "get",         //修改当前页面内容
 							url: request_url + "Add/chaxun", 
@@ -106,21 +80,27 @@
 							     json =JSON.parse(data);  
 								shouyi.innerHTML=json.shouyi
 								    
-							}                  
+							}     
+							
 			});    
     	$.ajax({      
 							type: "get",         //修改当前页面内容 
 							url: request_url + "Add/chongzhijilu", 
 							data: {    
-							    phone_data:phone, 
+							    phone_data:phone,  
 							},                    
 							async: true,   
 							success: function(data) {    
 								     
-							    json  =JSON.parse(data);   
-							    json1=[data] 
-							     chuanshu1()
-//								 for(  a in json){ 
+							   // json  =JSON.parse(data);   
+						 str=JSON.stringify(data);  //json转字符串
+						 //   obj = JSON.parse(str);     //字符串转json  
+							//   console.log(obj);    
+							  // json  =JSON.parse(obj);   //json转数组
+							 //  console.log(obj[0].tujing); 
+							chuanshu1() 
+							    
+//								 for(  a in json){  
 //									  var tmpl ='<div class="caiwumingxi-neirong" >'
 //										        +  '  <div class="caiwumingxi-neirong-left">'
 //										        +                                  '充值-从'+json[a].tujing+'转入账户中<br>'
@@ -147,9 +127,14 @@
 							async: true,   
 							success: function(data) {    
 								
-							    json  =JSON.parse(data);  
-							    json1=[json1,data]
-							    chuanshu2()
+							 	 str=str+JSON.stringify(data);  //json转字符串
+							 	// console.log(str)  
+							 	 str=str.replace("]\"\"[",",");   
+					       	 //  obj = JSON.parse(str);     //字符串转json 
+							  // console.log(obj);  
+							   //json  =JSON.parse(obj);   //json转数组 
+							       // console.log(str) 
+							    chuanshu2() 
 //								 for(  a in json)       {  
 //									  var tmpl ='<div class="caiwumingxi-neirong" >'
 //										        +  '  <div class="caiwumingxi-neirong-left">'   
@@ -165,21 +150,28 @@
 //								}
 		 				 	    
 						}                   
-			});  
+			});   
      	 } 
      function chuanshu2(){
      		$.ajax({      
 							type: "get",         //修改当前页面内容 
-							url: request_url + "Add/zonghejilu", 
+							url: request_url + "Add/tixianjilu", 
 							data: {    
 							    phone_data:phone,  
 							    
 							},                     
 							async: true,   
 							success: function(data) {    
-							json  = JSON.parse(data);    
-							     json1=[json1,data]
-						    shilihua()  
+							str=str+JSON.stringify(data);  //json转字符串
+							 //  console.log(str)   
+							str=str.replace("]\"\"[",",");
+							  
+							   // console.log(str)      
+							  obj = JSON.parse(str);     //字符串转json
+							  // console.log(obj);   
+							   json  =JSON.parse(obj);   //json转数组 
+							
+						    shilihua() 
 //								 for(  a in json){  
 //									  var tmpl ='<div class="caiwumingxi-neirong" >'
 //										        +  '  <div class="caiwumingxi-neirong-left">'
@@ -201,114 +193,61 @@
     	
     	
     	 
-    	function shilihua(){ 
+    	function shilihua(){  
     		         
-    		         	console.log(json1)  
-    		         	alert(json1)
-//    						for(  a in json1) { 
-//    						
-//									  var tmpl ='<div class="caiwumingxi-neirong" >'
-//										        +  '  <div class="caiwumingxi-neirong-left">'
-//										        +                                  '提现-转入到你设定的'+json[a].tujing+'中<br>'
-//										        +     json[a].time                            
-//										        +    '</div>'   
-//										        +    '<div class="caiwumingxi-neirong-right">'
-//										        +    '-'  +json[a].jine
-//										        +   ' </div> '    
-//										        + '</div> '   
-//							  			        + ' <div class="caiwumingxi-neirong-huaxian"></div>'
-//			    	  	  	dic.innerHTML += tmpl;  
-//								}
+    		         	   
+    		         	    //  console.log(json)
+    		         	//console.log(json1[0]);
+    		         //	alert(json1)   
+    		         var tmpl
+      						for(  a in json) {
+      						         if (json[a].lexing==0){
+        						         	  
+								 			tmp ='<div class="caiwumingxi-neirong" >'
+									        +  '  <div class="caiwumingxi-neirong-left">'   
+									        +                                   '从'+json[a].tujing+'冻结(发单期间冻结)<br>'
+									        +     json[a].time                             
+									        +    '</div>' 
+									        +    '<div class="caiwumingxi-neirong-right">'
+									        +    '+'  +json[a].jine
+									        +   ' </div> ' 
+									        + '</div> '  
+						  			        + ' <div class="caiwumingxi-neirong-huaxian"></div>'
+						    	  	  	dic.innerHTML += tmpl; 
+											 
+      						         } else if(json[a].leixing==1){ 
+      						         	  tmpl ='<div class="caiwumingxi-neirong" >'
+										        +  '  <div class="caiwumingxi-neirong-left">'
+										        +                                  '充值-从'+json[a].tujing+'转入账户中<br>'
+										        +     json[a].time                            
+										        +    '</div>' 
+										        +    '<div class="caiwumingxi-neirong-right">'
+										        +    '+'  +json[a].jine
+										        +   ' </div> ' 
+										        + '</div> '  
+							  			        + ' <div class="caiwumingxi-neirong-huaxian"></div>'
+			    	  	  				dic.innerHTML += tmpl; 
+      						         }else if (json[a].leixing==2){
+      						         	tmpl ='<div class="caiwumingxi-neirong" >'
+										        +  '  <div class="caiwumingxi-neirong-left">'
+										        +                                  '提现-转入到你设定的'+json[a].tujing+'中<br>'
+										        +     json[a].time                            
+										        +    '</div>'   
+										        +    '<div class="caiwumingxi-neirong-right">'
+										        +    '-'  +json[a].jine
+										        +   ' </div> '     
+										        + '</div> '   
+							  			        + ' <div class="caiwumingxi-neirong-huaxian"></div>'
+			    	  	  				dic.innerHTML += tmpl;  
+      						         }  
+									   
+								}
     	}
     	
     	
-    	
-    	
-    	
-    	
-        ee.addEventListener('tap',function(){
-        	 if(i==0)
-        	 {
-        	  tc.style.display='block';
-        	  fanhui.style.display='block';
-        	  i=1;
- 	         }
-        	 else if(i==1)
-        	 {
-        	  tc.style.display='none';
-        	  fanhui.style.display='none';	
-        	  i=0;
-        	 }
-//      	  console.log(i);
-        })
-    	fanhui.addEventListener('tap',function(){
-        	tc.style.display='none'
-        	fanhui.style.display='none'
-        })
-       riqi['0'].addEventListener('tap',function(){
-           riqi['0'].style.color='dodgerblue';
-       	   riqi['0'].style.border='dodgerblue solid 1px';
-       	   riqi['1'].style.color='#000';
-       	   riqi['1'].style.border='#E6E6E6 solid 1px';
-       	   riqi['2'].style.color='#000';
-       	   riqi['2'].style.border='#E6E6E6 solid 1px';
-       })
-       riqi['1'].addEventListener('tap',function(){
-           riqi['1'].style.color='dodgerblue';
-       	   riqi['1'].style.border='dodgerblue solid 1px';
-       	   riqi['0'].style.color='#000';
-       	   riqi['0'].style.border='#E6E6E6 solid 1px';
-       	   riqi['2'].style.color='#000';
-       	   riqi['2'].style.border='#E6E6E6 solid 1px';
-       })
-       riqi['2'].addEventListener('tap',function(){
-       	   riqi['2'].style.color='dodgerblue';
-       	   riqi['2'].style.border='dodgerblue solid 1px';
-       	   riqi['1'].style.color='#000';
-       	   riqi['1'].style.border='#E6E6E6 solid 1px';
-       	   riqi['0'].style.color='#000';
-       	   riqi['0'].style.border='#E6E6E6 solid 1px';
-       })
-       bu['0'].addEventListener('tap',function(){
-           bu['0'].style.color='dodgerblue';
-       	   bu['0'].style.border='dodgerblue solid 1px';
-       	   bu['1'].style.color='#000';
-       	   bu['1'].style.border='#E6E6E6 solid 1px';
-       	   bu['2'].style.color='#000';
-       	   bu['2'].style.border='#E6E6E6 solid 1px';
-       })
-       bu['1'].addEventListener('tap',function(){
-           bu['1'].style.color='dodgerblue';
-       	   bu['1'].style.border='dodgerblue solid 1px';
-       	   bu['0'].style.color='#000';
-       	   bu['0'].style.border='#E6E6E6 solid 1px';
-       	   bu['2'].style.color='#000';
-       	   bu['2'].style.border='#E6E6E6 solid 1px';
-//     	   alert(4);
-       })
-       bu['2'].addEventListener('tap',function(){
-       	   bu['2'].style.color='dodgerblue';
-       	   bu['2'].style.border='dodgerblue solid 1px';
-       	   bu['1'].style.color='#000';
-       	   bu['1'].style.border='#E6E6E6 solid 1px';
-       	   bu['0'].style.color='#000';
-       	   bu['0'].style.border='#E6E6E6 solid 1px';
-       })
-       qing.addEventListener('tap',function(){
-       	   riqi['0'].style.color='dodgerblue';
-       	   riqi['0'].style.border='dodgerblue solid 1px';
-       	   riqi['1'].style.color='#000';
-       	   riqi['1'].style.border='#E6E6E6 solid 1px';
-       	   riqi['2'].style.color='#000';
-       	   riqi['2'].style.border='#E6E6E6 solid 1px';
-       	   bu['0'].style.color='dodgerblue';
-       	   bu['0'].style.border='dodgerblue solid 1px';
-       	   bu['1'].style.color='#000';
-       	   bu['1'].style.border='#E6E6E6 solid 1px';
-       	   bu['2'].style.color='#000';
-       	   bu['2'].style.border='#E6E6E6 solid 1px';
-       })
-       
+    	  
+    	 
+      
       
     </script>
     

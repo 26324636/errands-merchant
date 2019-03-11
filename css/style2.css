@@ -1,3 +1,10 @@
+body{
+	font-family: "微软雅黑";
+	 margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+} 
 .shouye-top{
 	
 	
@@ -5,17 +12,21 @@
 
  
   
-   /*background: #FF8A4B ;*/
-   background-image: url(../images/xinyong_banner.jpg);
+   /*background: #FF8A4B ;*/ 
+   
    position: absolute;
-   top: 0;
+    top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	width: 100%;
-	height: 20%;
+	width: 100%; 
+	height: 20%; 
+     
+	background: -webkit-linear-gradient(left, #FF905C , #FFC060); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FF905C, #FFC060); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #FF905C, #FFC060); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FF905C , #FFC060); /* 标准的语法（必须放在最后） */
     
-  
 } 
 
 
@@ -193,3 +204,18 @@ float: left;
 	font-size: 30px;
 	color: #000;
 }
+.index-heard{
+	width: 50px;
+	height: 35px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.index-heard img{
+	width: 100%;
+	height: 100%;
+
+}
+.bg{
+	background: #FF905C !important;
+}
+
